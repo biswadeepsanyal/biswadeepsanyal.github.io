@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI System Playground</title>
+<style>
+body{font-family:Arial;background:#0b0f19;color:white;text-align:center}
+.stage{background:#1f2937;margin:12px auto;padding:15px;width:280px;border-radius:8px;opacity:0.3}
+.active{background:#22c55e;opacity:1}
+button{padding:10px 20px;margin:20px}
+</style>
+
+<script>
+function runPipeline(){
+const steps=["user","router","retrieval","agent","reasoning","llm","response"]
+steps.forEach((step,i)=>{
+setTimeout(()=>{
+document.getElementById(step).classList.add("active")
+},i*800)
+})
+}
+</script>
+</head>
+
+<body>
+
+<h1>AI Architecture Playground</h1>
+<button onclick="runPipeline()">Run AI System</button>
+
+<div id="user" class="stage">User Prompt</div>
+<div id="router" class="stage">Prompt Router</div>
+<div id="retrieval" class="stage">RAG Retrieval</div>
+<div id="agent" class="stage">Agent Planner</div>
+<div id="reasoning" class="stage">LLM Reasoning</div>
+<div id="llm" class="stage">LLM Generation</div>
+<div id="response" class="stage">Final Response</div>
+
+</body>
+</html>

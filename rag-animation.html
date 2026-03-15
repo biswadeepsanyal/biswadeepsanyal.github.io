@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>RAG Pipeline</title>
+<style>
+body{font-family:Arial;background:#0b0f19;color:white;text-align:center}
+.stage{background:#2563eb;padding:15px;margin:10px auto;width:250px;border-radius:8px;opacity:0.3}
+.active{background:#22c55e;opacity:1}
+</style>
+
+<script>
+function run(){
+const steps=["user","embedding","vector","retrieval","llm","response"]
+steps.forEach((s,i)=>{
+setTimeout(()=>{
+document.getElementById(s).classList.add("active")
+},i*800)
+})
+}
+</script>
+</head>
+
+<body>
+
+<h1>RAG Retrieval Pipeline</h1>
+<button onclick="run()">Run Pipeline</button>
+
+<div id="user" class="stage">User Query</div>
+<div id="embedding" class="stage">Embedding Model</div>
+<div id="vector" class="stage">Vector Database</div>
+<div id="retrieval" class="stage">Context Retrieval</div>
+<div id="llm" class="stage">LLM Generation</div>
+<div id="response" class="stage">Final Response</div>
+
+</body>
+</html>

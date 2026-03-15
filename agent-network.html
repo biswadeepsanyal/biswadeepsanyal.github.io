@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Agent Network</title>
+<style>
+body{font-family:Arial;background:#0b0f19;color:white;text-align:center}
+canvas{background:#111827;margin-top:20px}
+</style>
+</head>
+
+<body>
+
+<h1>Multi-Agent Communication Network</h1>
+<canvas id="network" width="700" height="400"></canvas>
+
+<script>
+const canvas=document.getElementById("network")
+const ctx=canvas.getContext("2d")
+
+const agents=[
+{x:100,y:200,label:"Planner"},
+{x:300,y:100,label:"Research"},
+{x:300,y:300,label:"Tool"},
+{x:550,y:200,label:"Writer"}
+]
+
+function drawNode(a){
+ctx.beginPath()
+ctx.arc(a.x,a.y,20,0,Math.PI*2)
+ctx.fillStyle="#2563eb"
+ctx.fill()
+ctx.fillStyle="white"
+ctx.fillText(a.label,a.x-20,a.y+40)
+}
+
+function connect(a,b){
+ctx.beginPath()
+ctx.moveTo(a.x,a.y)
+ctx.lineTo(b.x,b.y)
+ctx.strokeStyle="#94a3b8"
+ctx.stroke()
+}
+
+connect(agents[0],agents[1])
+connect(agents[0],agents[2])
+connect(agents[1],agents[3])
+connect(agents[2],agents[3])
+
+agents.forEach(drawNode)
+</script>
+
+</body>
+</html>

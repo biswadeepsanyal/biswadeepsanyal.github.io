@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Latency Simulator</title>
+<style>
+body{font-family:Arial;background:#0b0f19;color:white;text-align:center}
+.bar{height:40px;margin:10px auto;border-radius:8px;width:0;color:white;display:flex;align-items:center;justify-content:center}
+.cpu{background:#ef4444}
+.gpu{background:#22c55e}
+</style>
+
+<script>
+function run(){
+const cpu=document.getElementById("cpu")
+const gpu=document.getElementById("gpu")
+cpu.style.width="80%"
+cpu.innerText="CPU Inference ~1200ms"
+setTimeout(()=>{
+gpu.style.width="35%"
+gpu.innerText="GPU Inference ~280ms"
+},500)
+}
+</script>
+</head>
+
+<body>
+
+<h1>LLM Inference Latency</h1>
+<button onclick="run()">Run Simulation</button>
+
+<div id="cpu" class="bar cpu"></div>
+<div id="gpu" class="bar gpu"></div>
+
+</body>
+</html>

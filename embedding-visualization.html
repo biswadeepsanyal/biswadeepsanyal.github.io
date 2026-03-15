@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Embedding Visualization</title>
+<style>
+body{font-family:Arial;background:#0b0f19;color:white;text-align:center}
+canvas{background:#111827;margin-top:20px}
+</style>
+</head>
+
+<body>
+
+<h1>Embedding Space Visualization</h1>
+<canvas id="map" width="600" height="400"></canvas>
+
+<script>
+const canvas=document.getElementById("map")
+const ctx=canvas.getContext("2d")
+
+const points=[
+{x:100,y:200,label:"AI"},
+{x:150,y:210,label:"Machine Learning"},
+{x:180,y:220,label:"Neural Networks"},
+{x:450,y:120,label:"Finance"},
+{x:470,y:140,label:"Banking"},
+{x:480,y:160,label:"Investment"}
+]
+
+points.forEach(p=>{
+ctx.beginPath()
+ctx.arc(p.x,p.y,6,0,Math.PI*2)
+ctx.fillStyle="#3b82f6"
+ctx.fill()
+ctx.fillStyle="white"
+ctx.fillText(p.label,p.x+10,p.y)
+})
+</script>
+
+</body>
+</html>
